@@ -247,7 +247,7 @@ function setupDarkModeToggle() {
         localStorage.setItem('darkMode', darkModeStylesheet.prop('disabled') ? 'disabled' : 'enabled');
     });
 
-    // Check if mode preference is already stored
+    // check if mode preference is already stored
     if (localStorage.getItem('darkMode') === 'enabled') {
         darkModeStylesheet.prop('disabled', false);
     }
