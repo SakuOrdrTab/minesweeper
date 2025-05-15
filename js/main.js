@@ -233,34 +233,28 @@ function runCodeForAllCells(cb) {
 }
 
 // dark mode functionality
-$(document).ready(function() {
+function setupDarkModeToggle() {
     const darkModeBtn = $('#dark-mode-button');
-    const mainStylesheet = $('<link rel="stylesheet" href="css/main.css">');
-    const darkModeStylesheet = $('<link rel="stylesheet" href="css/main-darkmode.css">');
+    const mainStylesheet = $('#main-stylesheet');
+    const darkModeStylesheet = $('<link rel="stylesheet" href="css/main-darkmode.css">').attr('id', 'dark-mode-stylesheet');
 
-    darkModeBtn.on('click', function() {
-        console.log('Dark mode button clicked');
-        if (localStorage.getItem('darkMode') !== 'enabled') {
-            console.log('Switching to dark mode');
-            // Switch to dark mode
-            mainStylesheet.remove();
-            $('head').append(darkModeStylesheet);
-            localStorage.setItem('darkMode', 'enabled');
-        } else {
-            console.log('Switching to normal mode');
-            // Switch to normal mode
-            darkModeStylesheet.remove();
-            $('head').append(mainStylesheet);
-            localStorage.setItem('darkMode', 'disabled');
-        }
+    $('head').append(mainStylesheet);
+    $('head').append(darkModeStylesheet);
+    darkModeStylesheet.prop('disabled', true); // initially disable dark mode
+
+    darkModeBtn.on('click', function () {
+        darkModeStylesheet.prop('disabled', !darkModeStylesheet.prop('disabled'));
+        localStorage.setItem('darkMode', darkModeStylesheet.prop('disabled') ? 'disabled' : 'enabled');
     });
 
-    // Check for saved preference on page load
+    // Check if mode preference is already stored
     if (localStorage.getItem('darkMode') === 'enabled') {
-        mainStylesheet.remove();
-        $('head').append(darkModeStylesheet);
+        darkModeStylesheet.prop('disabled', false);
     }
-});
+}
 
-init();
-render();
+$(document).ready(function () {
+    setupDarkModeToggle();
+    init();
+    render();
+});
