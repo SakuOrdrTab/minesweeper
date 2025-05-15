@@ -21,11 +21,11 @@
 }
 
 body {
-    background-color: #0D8584;
+    background-color: #021414;
 }
 
 #board {
-    background-color: lightgray;
+    background-color: rgb(29, 27, 27);
 }
 
 button {
