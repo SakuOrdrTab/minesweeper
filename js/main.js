@@ -232,5 +232,35 @@ function runCodeForAllCells(cb) {
   });
 }
 
+// dark mode functionality
+$(document).ready(function() {
+    const darkModeBtn = $('#dark-mode-button');
+    const mainStylesheet = $('<link rel="stylesheet" href="css/main.css">');
+    const darkModeStylesheet = $('<link rel="stylesheet" href="css/main-darkmode.css">');
+
+    darkModeBtn.on('click', function() {
+        console.log('Dark mode button clicked');
+        if (localStorage.getItem('darkMode') !== 'enabled') {
+            console.log('Switching to dark mode');
+            // Switch to dark mode
+            mainStylesheet.remove();
+            $('head').append(darkModeStylesheet);
+            localStorage.setItem('darkMode', 'enabled');
+        } else {
+            console.log('Switching to normal mode');
+            // Switch to normal mode
+            darkModeStylesheet.remove();
+            $('head').append(mainStylesheet);
+            localStorage.setItem('darkMode', 'disabled');
+        }
+    });
+
+    // Check for saved preference on page load
+    if (localStorage.getItem('darkMode') === 'enabled') {
+        mainStylesheet.remove();
+        $('head').append(darkModeStylesheet);
+    }
+});
+
 init();
 render();

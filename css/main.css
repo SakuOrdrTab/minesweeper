@@ -62,6 +62,7 @@ button:hover {
     padding: 5px;
 }
 
+
 .flex-container {
     display: flex;
     justify-content: center;
@@ -124,7 +125,9 @@ button:hover {
 
 #reset:hover {
     text-align: center;
+
     cursor: pointer;
+    
 }
 
 .sidebar {
@@ -134,6 +137,12 @@ button:hover {
 }
 
 #size-btns {
+    float: left;
+    display: inline;
+    margin: 2px;
+}
+
+#dark-mode-button {
     float: left;
     display: inline;
     margin: 2px;
@@ -198,3 +207,4 @@ td {
     background: linear-gradient(to right, rgba(33,41,89,1) 0%,rgba(33,41,89,1) 11%,rgba(80,114,161,1) 56%,rgba(117,172,219,0.7) 92%,rgba(125,185,232,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#212959', endColorstr='#007db9e8',GradientType=1 ); /* IE6-9 */
 }
+
