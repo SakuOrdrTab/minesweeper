@@ -19,11 +19,11 @@
 }
 
 body {
-    background-color: #031e1e;
+    background-color: #030303;
 }
 
 #board {
-    background-color: lightgray;
+    background-color: rgb(50, 50, 50);
 }
 
 button {
@@ -32,12 +32,12 @@ button {
     font-size: 14px;
     height: 30px;
     width: 100px;
-    background-color: #BFBFBF;
-    color: black;
-    border-bottom: 2px solid #7B7B7B;
-    border-left: 2px solid #ffffff;
-    border-top: 2px solid #ffffff;
-    border-right: 2px solid #7B7B7B;
+    background-color: rgb(50, 50, 50);
+    color: rgb(190, 190, 190);
+    border-bottom: 2px solid #0B0B0B;
+    border-left: 2px solid #7f7f7f;
+    border-top: 2px solid #7f7f7f;
+    border-right: 2px solid #0B0B0B;
 }
 
 button:hover {
@@ -51,6 +51,7 @@ button:hover {
     font-size: 14px;
     display: inline;
     float: right;
+    color: rgb(190, 190, 190);
     border-top: 1.5px solid #808080;
     border-left: 1.5px solid #808080;
     border-right: 1.5px solid #FAFAFA;
@@ -80,7 +81,7 @@ button:hover {
 }
 
 #folder-bar {
-    background-color: #D3CEC4;
+    background-color: rgb(50, 50, 50);
     border: none;
     text-align: left;
     padding: 2px 8px;
@@ -90,7 +91,7 @@ button:hover {
     text-align: center;
     position: fixed;
     height: 36px;
-    background-color: #BFBFBF;
+    background-color: rgb(50, 50, 50);
     bottom: 0px;
     left: 0px;
     right: 0px;
@@ -99,7 +100,7 @@ button:hover {
 
 .menu a {
     font-family: 'MS Sans Serif';
-    color: black;
+    color: rgb(190, 190, 190);
     text-decoration: none;
     font-size: 14px;
     letter-spacing: 0;
@@ -117,7 +118,7 @@ button:hover {
 
 .revealed {
     font-family: "Press Start";
-    background-color: #C0C0C0;
+    background-color: rgb(50, 50, 50);
     font-size: 80%;
     text-align: center;
     border: none;
@@ -167,12 +168,12 @@ button:hover {
 td {
     height: 20px;
     width: 20px;
-    background-color: #C0C0C0;
+    background-color: rgb(50, 50, 50);
     border: 1.5px solid;
-    border-top-color: #ffffff;
-    border-right-color: #7B7B7B;
-    border-bottom-color: #7B7B7B;
-    border-left-color: #ffffff;
+    border-top-color: rgb(190, 190, 190);
+    border-right-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+    border-left-color: rgb(190, 190, 190);
     text-align: center;
     vertical-align: middle;
 }
