@@ -234,27 +234,28 @@ function runCodeForAllCells(cb) {
 
 // dark mode functionality
 function setupDarkModeToggle() {
-    const darkModeBtn = $('#dark-mode-button');
-    const mainStylesheet = $('#main-stylesheet');
-    const darkModeStylesheet = $('<link rel="stylesheet" href="css/main-darkmode.css">').attr('id', 'dark-mode-stylesheet');
+  const darkModeBtn = $('#dark-mode-button');
+  const mainStylesheet = $('#main-stylesheet');
+  const darkModeStylesheet = $(
+    '<link id="dark-mode-stylesheet" rel="stylesheet" href="css/main-darkmode.css" disabled>'
+  );
 
-    $('head').append(mainStylesheet);
-    $('head').append(darkModeStylesheet);
-    darkModeStylesheet.prop('disabled', true); // initially disable dark mode
+  mainStylesheet.after(darkModeStylesheet);
 
-    darkModeBtn.on('click', function () {
-        darkModeStylesheet.prop('disabled', !darkModeStylesheet.prop('disabled'));
-        localStorage.setItem('darkMode', darkModeStylesheet.prop('disabled') ? 'disabled' : 'enabled');
-    });
+  // if user has previously opted in, enable it now
+  if (localStorage.getItem('darkMode') === 'enabled') {
+    darkModeStylesheet.prop('disabled', false);
+  }
 
-    // check if mode preference is already stored
-    if (localStorage.getItem('darkMode') === 'enabled') {
-        darkModeStylesheet.prop('disabled', false);
-    }
+  darkModeBtn.on('click', () => {
+    const isDisabled = darkModeStylesheet.prop('disabled');
+    darkModeStylesheet.prop('disabled', !isDisabled);
+    localStorage.setItem('darkMode', isDisabled ? 'enabled' : 'disabled');
+  });
 }
 
 $(document).ready(function () {
-    setupDarkModeToggle();
-    init();
-    render();
+  setupDarkModeToggle();
+  init();
+  render();
 });
